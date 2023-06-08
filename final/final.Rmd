@@ -1,7 +1,7 @@
 ---
-title: "Title"
+title: "Potato resources and use in Russia"
 author: 
-  - Last Name, First Name[^1]
+  - Kerimov Gasym[^1]
 bibliography: ../bibliography/biblio.bib
 csl: ../csl/apa.csl
 header-includes:
@@ -25,7 +25,7 @@ urlcolor: blue
 fontsize: 12pt
 biblio-style: apalike
 abstract: |
-    Write your abstract here.
+    One of Russia's most important crops, potatoes are a key agricultural product and a source of food. With over 30 million tons produced annually, Russia is one of the world's largest potato producers. Potatoes are filled in pretty much every district of the country, with the biggest creation places situated in the focal and southern locales.
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
@@ -34,41 +34,29 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 <!-- ======================================================================= -->
 <!-- ============================== FOOTNOTES ============================== -->
 <!-- ======================================================================= -->
-[^1]: Student ID, [Github Repo](https://github.com/YOUR_USER_NAME_HERE/YOUR_REPO_NAME_HERE)
+[^1]: 20080725, [Github Repo](https://github.com/Qasim277/20080725.git)
 
-# Important Information About Midterm
-
-\colorbox{BurntOrange}{WRITE YOUR GITHUB REPO LINK ON LINE 37 IN THIS FILE!}
-
-**Project Proposal submisson will be done by uploading a zip file to the ekampus system along with the Github repo link. If you do not upload a zip file to the system and do not provide a Github repo link, you will be deemed not to have entered the midterm and final exams.**
-
-**You must upload your project folder (`YourStudentID.zip` file) to *ekampus.ankara.edu.tr* until 9 June 2023, 23:59.**
-
-\colorbox{WildStrawberry}{Read the README.md file in the project folder for more information.}
 
 # Introduction
-This outline has been created to assist you in writing your project assignment. You should cite all the sources you use, articles, presentations, projects, etc. Quoting and referencing gives readers the opportunity to access the resources you refer. **Even though you use your own words, if you are conveying the ideas of others in your work, you have to document the source of these ideas. Otherwise, you are committing academic plagiarism.** For example, you can refer to @aydinonat:2007 for academic writing rules. You can find lots of online resources on this topic.
-
-The sections in your project assignment should definitely include the sections in this text. Apart from the sections used here, you can use different subsections. When writing your project, use this file as a draft and adapt its content to your purposes.
-
-In this section, mention the purpose and importance of your work in a few paragraphs.
+The cultivation of potatoes in Russia is driven by several factors, including the country's vast land area, diverse climate, and historical agricultural practices. Potatoes are grown in numerous regions across the country, with varying soil types and climatic conditions influencing production methods. Historically, the introduction of potatoes in Russia helped alleviate famines and improve dietary diversity. During times of food scarcity, potatoes provided a reliable source of calories and nutrients, leading to increased food security. This review aims to provide a comprehensive understanding of the role of potatoes in Russian agriculture, economy, and culinary traditions.
 
 ## Literature Review
 
-In this section, discuss the articles you have read on the subject by giving references. This is a narrative citation @chang:2013. This one is a parenthetical citation [@chang:2013]. **Do not summarize each article individually under a separate title.** In the literature review section, **at least six** articles must be cited [@newbold:2003; @verzani:2014; @wickham:2014; @wooldridge:2015a].
+Potato is currently grown on an estimated 20 million hectares of farmland globally, and the potato production worldwide stands for 366 million tones. The highest concentrations are found in the temperate zone of the northern hemisphere where the crop is grown in summer during the frost-free period. In these regions, potato is mainly grown as a cash crop and is therefore an important source of income. In tropical regions, the crop is significant in the highlands of the Andes, the African highlands and the Rift valley, and the volcanic mountains of West Africa and Southeast Asia, where production is both for staple food and cash (@haverkort2016durable.). In the subtropics, the crop is grown as a winter crop during the heat-free period such as in the Mediterranean region, North India, and southern China. Genotypes, management factors, and performance outputs are depicted as continuums, with extremes showing typical elements that characterize rural (left) or industrial (right) agri-food systems and combinations of both systems in-between 686 Potato Research (2021) 64:681–720 varieties (@animitsa2014evolution). Potato is now the world’s third most important food crop in terms of human consumption, after wheat and rice (@vasilyev2021potato) despite the large proportion of potato produce used for seed and as animal feed. Consumption of fresh potatoes accounts for approximately two-thirds of the harvest and around 1.3 billion people eat potatoes as a staple food (more than 50 kg per person per year) including regions of India and China.
 
-# Data
-In this section, discuss the source of the data set you use in your study, if you have done any operation on the raw data, these operations and the summary statistics about the data set. In this section, it is mandatory to have a table (Table \ref{tab:summary}) containing summary statistics (mean, standard deviation, minimum, maximum, etc. values) of all variables. Make the necessary references to your tables as shown in the previous sentence [@perkins:1991].
+## Dataset
+The Russian agricultural output data include grains, sunflower seed, potatoes, vegetables, milk, meat and eggs. Output is defined as annual production and does not include stocks or imports. Data for these nine commodities are available annually to the authors for the years 1994-96 and 1999-2013. Missing national data (1997-98) were primarily interpolated using Food and Agriculture Organization of the United Nations growth rates (@anstalt2013food); missing State data were often interpolated using national growth rates. All output data are recorded in metric tons. All prices and values are converted to 2000 constant rubles using the World Bank’s gross domestic product (GDP) deflator specific to Russia.
 
-R codes for the analysis should start in this section. In this section, you should include the codes that imports the data set into R and the codes that generate summary statistics.
-
-```{r}
+### Data summary statistics
+The dataset's key statistics are summarized in Table 1 for each variable. The characteristics of each variable are illuminated by these statistics, which shed light on the central tendency, variability, and range of the data. Beginning with trades, the mean product esteem is 145.10, demonstrating the typical measure of labor and products offered to different nations. With a standard deviation of 337.93, it is clear that export values are highly variable.The misfortunes variable catches how much misfortune brought about during the predefined period. Losses have a mean of 56.55 and a standard deviation of 205.74, indicating that there is a moderate amount of variation. Individuals' consumption of goods or services is referred to as personal consumption. The average level of consumption is indicated by the value of 529.64 for personal consumption.
+```{r, echo=FALSE}
 library(tidyverse)
 library(here)
-survey <- read_csv(here("data/survey.csv"))
+library(readxl)
+kerimov <- read_excel(here("data/kerimov.xlsx"))
+
 ```
 
-Note that code options are edited in some of the code chunks in the Rmd file.
 
 ```{r, echo=FALSE}
 library(xtable) 
@@ -76,40 +64,86 @@ library(summarytools)
 st_options(lang = "en")
 ```
 
-With the `echo=FALSE` option, prevent the codes from appearing in the derived pdf file and report your results in tables.
 
 ```{r results='asis', echo=FALSE}
-survey %>%
-  select("sex", "credits", "handedness", "height", "handspan") %>% 
+kerimov %>%
+  select("Stocks at the beginning of the year", "Production", "Imports", "Total Resources", "Productive production", "Losses", "Export", "Personal consumption", "Stocks at the end of year") %>% 
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>% 
   xtable(caption = "Summary Statistics",
          label = "tab:summary",
          align = c("l", "c", "c", "c", "c", "c")) %>% 
   print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
 ```
-
+\newpage
 
 # Methods and Data Analysis
-In this section describe the methods that you use to achieve the purpose of the study. You should use the appropriate analysis methods (such as hypothesis tests and correlation analysis) that we covered in the class. If you want, you can also use other methods that we haven't covered. If you think some method is more suitable for the purpose of the analysis and the data set, you can use that method [@newbold:2003; @verzani:2014; @wickham:2014; @wooldridge:2015a].
-
-For example, if you are performing regression analysis, discuss your predicted equation in this section. Write your equations and mathematical expressions using $LaTeX$.
-
-$$
-Y_t = \beta_0 + \beta_N N_t + \beta_P P_t + \beta_I I_t + \varepsilon_t
-$$
-
-This section should also include different tables and plots. You can add histograms, scatter plots (such as Figure \@ref(fig:plot)), box plots, etc. Make the necessary references to your figures as shown in the previous sentence.
 
 
-```{r plot, fig.align='center', fig.cap='An Awesome Plot'}
-survey %>% 
-  ggplot(aes(x = handedness, y = handspan)) +
-  geom_point() +
-  geom_smooth() +
-  scale_x_continuous("Handedness") + 
-  scale_y_continuous("Handspan")
+## Potato Exports and Imports in Russia
+In the context of international trade (Figure 1), the movement of goods and services between nations is frequently referred to as "export" or "import." The perspective of the countries involved and the direction of the trade flow are the primary distinctions between the two. A country's economy benefits from exports because they bring in money, create jobs, and encourage economic expansion. In the given dataset, the variable "Product" addresses the worth of labor and products sent out by various districts or substances inside Russia. Access to a wider range of goods, facilitation of international trade, and contribution to meeting domestic consumer needs are all provided by imports. The value of goods or services imported within Russia by various regions or entities is represented by the variable "Import" in the supplied dataset.
+
+
+```{r, echo=FALSE}
+library(ggplot2)
+
+
+ggplot(kerimov, aes(x = "", y = Export)) +
+  geom_bar(stat = "identity", fill = "yellow", width = 0.4) +
+  labs(title = "Export", x = "", y = "Value") +
+  theme_minimal() +
+  coord_flip()
+
+
+ggplot(kerimov, aes(x = "", y = Imports)) +
+  geom_bar(stat = "identity", fill = "red", width = 0.4) +
+  labs(title = "Imports", x = "", y = "Value") +
+  theme_minimal() +
+coord_flip()
+
 ```
 
+## Stocks at the beginning and at the end of the year: Identifying Key Measures In Analyzing Potato in Russia
+"Stocks at the beginning of the year" and "Stocks at the end of the year" are two important measures (Figure 2) that are used to look at the levels of inventory or stockpiles of a particular resource or product over a given time frame, usually a year. The variation between stocks at the beginning and at the end of the year sheds light on the shifts in inventory levels. It demonstrates the net impact of different factors like creation, imports, trades, individual utilization, and other significant factors. The balance between production and consumption, supply and demand trends, and resource management efficiency can all be evaluated by analyzing stock changes.
+
+```{r, echo=FALSE}
+library(ggplot2)
+library(dplyr)
+
+
+stocks_summary <- kerimov %>%
+  summarise(Beginning = sum(`Stocks at the beginning of the year`),
+            End = sum(`Stocks at the end of year`))
+
+pie_data <- data.frame(
+  Variable = c("Beginning", "End"),
+  Value = c(stocks_summary$Beginning, stocks_summary$End)
+)
+
+
+ggplot(pie_data, aes(x = "", y = Value, fill = Variable)) +
+  geom_bar(stat = "identity", width = 1) +
+  coord_polar(theta = "y") +
+  labs(title = "Stocks at the Beginning vs. End of Year", fill = "") +
+  scale_fill_manual(values = c("blue", "red"), labels = c("Beginning", "End")) +
+  theme_minimal()
+
+```
+
+## Total Potato Resources And Losses
+(Figure 3)'s terms "Losses" and "Total Resources" refer to various aspects of the production and consumption of goods in various regions of Russia in the context of the dataset. The quantity of resources or goods that are destroyed during the production and distribution processes is referred to as losses. Total resources refers to the total quantity or value of resources that are available for use in both production and consumption in a given region. It includes all of the resources used in the production process, including capital, labor, energy, raw materials, intermediate inputs, and other resources.
+```{r, echo=FALSE}
+ggplot(kerimov, aes(x = `Total Resources`, y = Losses)) +
+  geom_point() +
+  labs(title = "Scatter Plot: Total Resources vs. Losses", x = "Total Resources", y = "Losses") +
+  theme_minimal()
+
+```
+
+## Prediction
+
+$$
+\text{Stocks at the end of the year} = \beta_0 + \beta_N \cdot \text{Production} + \beta_P \cdot \text{Imports} + \beta_I \cdot \text{Total Resources} + \varepsilon_t
+$$
 
 # Conclusion
 Summarize the results of your analysis in this section. Discuss to what extent your results responded to the research question you identified at the beginning and how this work could be improved in the future.
@@ -120,5 +154,9 @@ Summarize the results of your analysis in this section. Discuss to what extent y
 
 \newpage
 # References {#references}
+Vasilyev, A. A., et al. "Potato variety resources for starch production in the Chelyabinsk region." Research on Crops 22.spl (2021): 17-21.
+FAO (2017) FAOSTAT Database. http://www.fao.org/faostat/en/#data/QC
+
+Amoros W, Salas E, Hualla V, Burgos G, De Boeck B, Eyzaguirre R, Felde T, Bonierbale MW (2020) Heritability and genetic gains for iron and zinc concentration in diploid potato. Crop Sci 60:1884–1896. https://doi.org/10.1002/csc2.20170 
 <div id="refs"></div>
 
