@@ -25,7 +25,7 @@ urlcolor: blue
 fontsize: 12pt
 biblio-style: apalike
 abstract: |
-    One of Russia's most important crops, potatoes are a key agricultural product and a source of food. With over 30 million tons produced annually, Russia is one of the world's largest potato producers. Potatoes are filled in pretty much every district of the country, with the biggest creation places situated in the focal and southern locales.
+    One of Russia's most important crops, potatoes are a key agricultural product and a source of food. With over 30 million tons produced annually, Russia is one of the world's largest potato producers. Potatoes are filled in pretty much every district of the country, with the biggest creation places situated in the focal and southern locales. Overall, potatoes are an important part of Russia's agricultural and culinary landscape.
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
@@ -45,7 +45,25 @@ The cultivation of potatoes in Russia is driven by several factors, including th
 Potato is currently grown on an estimated 20 million hectares of farmland globally, and the potato production worldwide stands for 366 million tones. The highest concentrations are found in the temperate zone of the northern hemisphere where the crop is grown in summer during the frost-free period. In these regions, potato is mainly grown as a cash crop and is therefore an important source of income. In tropical regions, the crop is significant in the highlands of the Andes, the African highlands and the Rift valley, and the volcanic mountains of West Africa and Southeast Asia, where production is both for staple food and cash (@haverkort2016durable.). In the subtropics, the crop is grown as a winter crop during the heat-free period such as in the Mediterranean region, North India, and southern China. Genotypes, management factors, and performance outputs are depicted as continuums, with extremes showing typical elements that characterize rural (left) or industrial (right) agri-food systems and combinations of both systems in-between 686 Potato Research (2021) 64:681–720 varieties (@animitsa2014evolution). Potato is now the world’s third most important food crop in terms of human consumption, after wheat and rice (@vasilyev2021potato) despite the large proportion of potato produce used for seed and as animal feed. Consumption of fresh potatoes accounts for approximately two-thirds of the harvest and around 1.3 billion people eat potatoes as a staple food (more than 50 kg per person per year) including regions of India and China.
 
 ## Dataset
-The Russian agricultural output data include grains, sunflower seed, potatoes, vegetables, milk, meat and eggs. Output is defined as annual production and does not include stocks or imports. Data for these nine commodities are available annually to the authors for the years 1994-96 and 1999-2013. Missing national data (1997-98) were primarily interpolated using Food and Agriculture Organization of the United Nations growth rates (@anstalt2013food); missing State data were often interpolated using national growth rates. All output data are recorded in metric tons. All prices and values are converted to 2000 constant rubles using the World Bank’s gross domestic product (GDP) deflator specific to Russia.
+The Russian agricultural output data include grains, sunflower seed, potatoes, vegetables, milk, meat and eggs. Output is defined as annual production and does not include stocks or imports. Data for these nine commodities are available annually to the authors for the years 1994-96 and 1999-2013. Missing national data (1997-98) were primarily interpolated using Food and Agriculture Organization of the United Nations growth rates (@anstalt2013food); missing State data were often interpolated using national growth rates. All output data are recorded in metric tons. All prices and values are converted to 2000 constant rubles using the World Bank’s gross domestic product (GDP) deflator specific to Russia.The dataset includes information on details, such as:
+
+- **Stocks at the beginning of the year**
+
+- **Production**
+
+- **Imports, including imports**    
+
+- **Total Resources**
+
+- **Productive consumption**
+
+- **Losses**
+
+- **Export,including export**
+
+- **Personal consumption **
+
+- **Stocks at the end of the year **
 
 ### Data summary statistics
 The dataset's key statistics are summarized in Table 1 for each variable. The characteristics of each variable are illuminated by these statistics, which shed light on the central tendency, variability, and range of the data. Beginning with trades, the mean product esteem is 145.10, demonstrating the typical measure of labor and products offered to different nations. With a standard deviation of 337.93, it is clear that export values are highly variable.The misfortunes variable catches how much misfortune brought about during the predefined period. Losses have a mean of 56.55 and a standard deviation of 205.74, indicating that there is a moderate amount of variation. Individuals' consumption of goods or services is referred to as personal consumption. The average level of consumption is indicated by the value of 529.64 for personal consumption.
@@ -74,7 +92,6 @@ kerimov %>%
          align = c("l", "c", "c", "c", "c", "c")) %>% 
   print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
 ```
-\newpage
 
 # Methods and Data Analysis
 
@@ -131,6 +148,8 @@ ggplot(pie_data, aes(x = "", y = Value, fill = Variable)) +
 
 ## Total Potato Resources And Losses
 (Figure 3)'s terms "Losses" and "Total Resources" refer to various aspects of the production and consumption of goods in various regions of Russia in the context of the dataset. The quantity of resources or goods that are destroyed during the production and distribution processes is referred to as losses. Total resources refers to the total quantity or value of resources that are available for use in both production and consumption in a given region. It includes all of the resources used in the production process, including capital, labor, energy, raw materials, intermediate inputs, and other resources.
+
+
 ```{r, echo=FALSE}
 ggplot(kerimov, aes(x = `Total Resources`, y = Losses)) +
   geom_point() +
@@ -140,17 +159,27 @@ ggplot(kerimov, aes(x = `Total Resources`, y = Losses)) +
 ```
 
 ## Prediction
-
+Stocks at the end of the year  dependent variable or the variable we are trying to predict. It represents the stock levels at the end of the year.
 $$
 \text{Stocks at the end of the year} = \beta_0 + \beta_N \cdot \text{Production} + \beta_P \cdot \text{Imports} + \beta_I \cdot \text{Total Resources} + \varepsilon_t
 $$
+$\beta_0$: This is the intercept term or the constant. It represents the expected value of the dependent variable when all the independent variables are zero.
+$\beta_N$: This is the coefficient associated with the variable "Production". It measures the effect of the "Production" variable.
+$\text{Production}$: This is an independent variable that represents the production levels.
+$\beta_P$: This is the coefficient associated with the variable "Imports". It measures the effect of the "Imports" variable on the dependent variable.
+$\text{Imports}$: This is an independent variable that represents the import levels.
+$\beta_I$: This is the coefficient associated with the variable "Total Resources". It measures the effect of the "Total Resources" variable on the dependent variable.
+$\text{Total Resources}$: This is an independent variable that represents the total resource levels.
+$\varepsilon_t$: This term represents the error or the residuals in the regression model. 
+
 
 # Conclusion
-Summarize the results of your analysis in this section. Discuss to what extent your results responded to the research question you identified at the beginning and how this work could be improved in the future.
+In conclusion, this academic paper looked into stock levels at the end of the year in various regions of Russia. Based on production, imports, and total resources, the regression equation provided in the initial prompt can be used to predict stock levels. 
 
-**References section is created automatically by Rmarkdown. There is no need to change the references section in the draft file.**
+Taking a gander at the information, it tends to be seen that the Focal Government Region has the most elevated complete assets and useful creation, which could make sense of why it has the most noteworthy stocks toward the year's end. On the other hand, the Belgorod region has the fewest productive production and total resources, which may be why it has the fewest stocks at year's end.
 
-**_You shouldn't delete the last 3 lines. Those lines are required for References section._**
+Overall, the data highlight the significance of production, imports, and total resources in determining stocks at the end of the year and provide insights into the stocks of various regions in Russia.
+
 
 \newpage
 # References {#references}
